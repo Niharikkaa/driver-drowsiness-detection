@@ -1,0 +1,20 @@
+# Core pipeline (Stage 1) -----------------------------------------------
+opencv-python>=4.8.0
+
+# 0.10.14 is pinned because it bundles the classic mp.solutions.face_mesh
+# API *and* its .tflite models, so nothing has to be downloaded at runtime.
+# Some newer slim builds ship only the Tasks API and need a separate model
+# file (see the Troubleshooting section of README.md).
+mediapipe==0.10.14
+
+# mediapipe 0.10.14 is built against the NumPy 1.x ABI.
+numpy>=1.24,<2.0
+
+# Step 2 - dataset handling, ML classification and reporting --------------
+pandas>=2.0.0
+scikit-learn>=1.3.0
+matplotlib>=3.7.0
+
+# Model persistence. Ships with scikit-learn but pinned explicitly because
+# src/training.py imports it directly.
+joblib>=1.3.0
